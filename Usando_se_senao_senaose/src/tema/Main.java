@@ -12,9 +12,7 @@ public class Main {
 		nome = JOptionPane.showInputDialog("Informe seu nome");
 		cep = JOptionPane.showInputDialog("Informe seu CEP");
 		cpf = JOptionPane.showInputDialog("Informe seu CPF");
-		JOptionPane.showMessageDialog(null, "Confira seus dados" + "\nNome: " + nome + "\nCEP: " + cep + "\nCPF: " + cpf);
-		JOptionPane.showInternalMessageDialog(null, "Seus dados estão corretos?");
-		confirmacao = JOptionPane.showInputDialog("Digite Sim,Não ou Sair");
+		confirmacao = JOptionPane.showInputDialog("Confira seus dados\n" + "Nome: " + nome + "\nCEP: " + cep + "\nCPF: " + cpf + "\nSeus dados estão corretos?\n" + "Digite Sim, Não ou Sair");
 		
 		if(confirmacao.equals("Sim")) {
 			JOptionPane.showInternalMessageDialog(null, "Obrigado por usar a mini Agenda");
