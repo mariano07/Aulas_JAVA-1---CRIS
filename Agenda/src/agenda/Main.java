@@ -8,10 +8,10 @@ public class Main {
 	public static void main(String[] args) {
 		//Varibales
 		String name=" ",cep=" ",adress=" ",cel_number=" ";
-		int option=0,i=0,changeOption;
+		int option=0,changeOption;
 		//Getting ser input
 		JOptionPane.showMessageDialog(null, "Bem Vindo a sua Agenda virtual");
-		while(i != 4) {
+		while(option != 4) {
 			option = Integer.parseInt(JOptionPane.showInputDialog("Informe qual opção deseja realizar\n[1]Adicionar Dados\n[2]Listar Dados Existentes\n[3]Mudar Dados\n[4]Sair"));
 			//Menu options
 			switch(option) {
