@@ -56,7 +56,6 @@ public class Main {
 		//Sending new size and new data to Choice to continue the While
 		Choice(new_size,names_new);
 	}
-	
 	public static void main(String[] args) {
 		//Variables
 		int size=0;
