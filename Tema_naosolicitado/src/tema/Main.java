@@ -1,5 +1,7 @@
 package tema;
 
+import java.util.Arrays;
+
 import javax.swing.JOptionPane;
 
 public class Main {
@@ -33,15 +35,12 @@ public class Main {
 				names_new[i] = JOptionPane.showInputDialog("Informe um nome pra registrar");
 			}
 			//Printing everything
-			for(i=0;i<new_size;i++) {
-				JOptionPane.showMessageDialog(null,"Nome: " + names_new[i]);
-			}
+			JOptionPane.showMessageDialog(null,"Nome: " + Arrays.toString(names_new));
+
 			
 			}else {
 				//Printing registered names
-				for(i=0;i<size;i++) {
-					JOptionPane.showMessageDialog(null,"Nome: " + names[i]);
-				}
+				JOptionPane.showMessageDialog(null,"Nome: " + Arrays.toString(names));
 			}
 	}
 
