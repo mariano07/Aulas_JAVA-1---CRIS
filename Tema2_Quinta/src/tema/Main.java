@@ -7,6 +7,7 @@ import javax.swing.JOptionPane;
 public class Main {
 	
 	public static void Names(int size) {
+		//Variable
 		int i=0;
 		//Creating first array
 		String[] names = new String[size];
@@ -14,16 +15,20 @@ public class Main {
 		for(i=0;i<size;i++) {
 			names[i] = JOptionPane.showInputDialog("Informe um nome pra registrar");
 		}
+		//Printing the names
 		JOptionPane.showMessageDialog(null,"Nome: " + Arrays.toString(names));
+		//Sending size and array to Choice function
 		Choice(size,names);
 	}
 	public static void Choice(int size,String[]names) {
+		//Variable
 		int option=0;
 		//Option to increase array
 		while(option != 2) {
 			option = Integer.parseInt(JOptionPane.showInputDialog("Deseja alterar tamanho do vetor? \n[1]Sim ou [2]Não"));
 			//Conditions
 			if(option == 1) {
+				//Sending size and array to function
 				Names2(size,names);
 			}else {
 				//Printing registered names
@@ -32,6 +37,7 @@ public class Main {
 		}
 	}
 	public static void Names2(int size, String[]names) {
+		//Variables
 		int new_size=0,i=0;
 		//New array size
 		new_size = Integer.parseInt(JOptionPane.showInputDialog("Informe o novo tamanho do vetor desejado"));
@@ -47,6 +53,7 @@ public class Main {
 		}
 		//Printing everything
 		JOptionPane.showMessageDialog(null,"Nome: " + Arrays.toString(names_new));
+		//Sending new size and new data to Choice to continue the While
 		Choice(new_size,names_new);
 	}
 	
