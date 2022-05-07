@@ -6,7 +6,7 @@ import javax.swing.JOptionPane;
 
 public class Register {
 	//Variables
-	int x=0,y=0,i=1,op=0;
+	int x=0,y=0,i=1,j=0,op=0;
 	//Registering Students names
 	public void StudentsNames() {
 		//Variable
@@ -19,6 +19,9 @@ public class Register {
 		//Registering students names
 		for(x=0;x<l;x++) {
 			students[x][0] = JOptionPane.showInputDialog("Informe o nome do " + i++ + "º estudante");
+			if(x<l) {
+				j=i;
+			}
 		}
 		//Registering Grades and making average grade
 		//Getting Grades
@@ -50,13 +53,11 @@ public class Register {
 	}
 	//Ask if you want to register new students
 	public void Repeat(int l,int c,String[][] students) {
-		
-		while(op != 3) {
-			op = Integer.parseInt(JOptionPane.showInputDialog("Escolha\n[1]Registrar mais alunos\n[2]Ver alunos registrados\n[3]Sair"));
+		while(op < 4) {
+			op = Integer.parseInt(JOptionPane.showInputDialog("Escolha\n[1]Registrar mais alunos\n[2]Ver alunos registrados\n[3]Remove um aluno\n[4]Sair"));
 			if(op == 1) {
 				StudentsNames2(l,c,students);
 			}else if(op == 2){
-				//Creating SringBuild
 				StringBuilder sb = new StringBuilder(l);
 				sb.append("<html><table>");
 				for(x=0;x<l;x++) {
@@ -72,8 +73,13 @@ public class Register {
 				}
 				sb.append("</table></html>");
 				JOptionPane.showMessageDialog(null, sb.toString());
+			}else if(op == 3) {
+				Remove(l,c,students);
+			}else if(op == 4){
+				JOptionPane.showMessageDialog(null,"Obrigado por usar nosso software");
 			}else {
 				JOptionPane.showMessageDialog(null,"Obrigado por usar nosso software");
+				op=99;
 			}
 		}
 	}
@@ -87,19 +93,16 @@ public class Register {
 		//Creating first Array
 		String[][] students2 = new String[l1][c];
 		//Passing old data to new array
-		i=1;
 		for(x=0;x<l;x++) {
-			i++;
 			for(y=0;y<c;y++) {
 				students2[x][y] = students[x][y];
 			}
 		}
 		//Registering students names
 		for(x=l;x<l1;x++) {
-			students2[x][0] = JOptionPane.showInputDialog("Informe o nome do " + i++ + "º estudante");
+			students2[x][0] = JOptionPane.showInputDialog("Informe o nome do " + j++ + "º estudante");
 		}
 		//Resetting variable for counting
-		i=1;
 		//Getting Grades
 		for(x=l;x<l1;x++) {
 			i=1;
@@ -126,5 +129,46 @@ public class Register {
 		}
 		//Sending size and array to Choice function
 		Repeat(l1,c,students2);
+	}
+	//Removing a student
+	public void Remove(int l,int c,String[][] students) {
+		//Variables
+		int n=0,k=0;
+		//Choosing wich student to delete
+		StringBuilder sb = new StringBuilder(l);
+		sb.append("<html><table>");
+		i=1;
+		for(x=0;x<l;x++) {
+			sb.append("<tr><td>");
+			sb.append(i++ + "º Aluno");
+			sb.append("</td>");
+			for(y=0;y<c;y++) {
+				sb.append("<td>");
+				sb.append("[" + students[x][y] + "]");
+				sb.append("</td>");
+			}
+			sb.append("</tr");
+		}
+		sb.append("</table></html>");
+		n = Integer.parseInt(JOptionPane.showInputDialog(sb.toString()));
+		n-=1;
+		for(y=0;y<c;y++) {
+			students[n][y] = "NR";
+		}
+		l-=1;
+		String[][] studentsnew = new String[l][c];
+		for(x=0;x<l;x++) {
+			k=x;
+			for(y=0;y<c;y++) {
+				if(students[x][y] == "NR") {
+					studentsnew[x][y] = students[k+1][y];
+					students[k+1][y] = "NR";
+				}else {
+					studentsnew[x][y] = students[x][y];
+				}
+			}
+		}
+		j=i-1;
+		Repeat(l, c, studentsnew);
 	}
 }
