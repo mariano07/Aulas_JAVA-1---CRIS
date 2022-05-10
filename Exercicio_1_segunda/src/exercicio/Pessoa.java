@@ -52,7 +52,7 @@ public class Pessoa {
 	
 	public int calcAge() {
 		LocalDate birthDate = LocalDate.of(year, month, day);
-		LocalDate currentDate = LocalDate.of(2022, 9, 5);
+		LocalDate currentDate = LocalDate.of(2022, 10, 5);
 		
 		return age = Period.between(birthDate, currentDate).getYears();
 	}
