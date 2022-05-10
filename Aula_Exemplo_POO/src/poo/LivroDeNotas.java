@@ -6,6 +6,15 @@ public class LivroDeNotas {
 	String nomealuno,status,matricula;
 	int n1,n2,n3; //Notas
 	double media;
+	private String obs ="";
+	
+	public String getObs() {
+		return obs;
+	}
+	
+	public void setObs(String obs) {
+		this.obs = obs;
+	}
 	
 	public void Add_Aluno() {
 		nomealuno = JOptionPane.showInputDialog("Informe o nome do aluno");
