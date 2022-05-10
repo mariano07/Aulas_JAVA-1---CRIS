@@ -81,6 +81,9 @@ public class Elevator {
 		//checking if it's possible to remove more people
 		if(peopleInside > 0) {
 			peopleInside--;
+		}else if(peopleInside == 0) {
+			JOptionPane.showMessageDialog(null,"Não tem ninguem no elevador!");
+			actions();
 		}
 		//checking for correct grammar
 		if(peopleInside == 1) {
@@ -104,6 +107,7 @@ public class Elevator {
 			actual_floor++;
 		}else if(actual_floor == floors) {
 			JOptionPane.showMessageDialog(null,"O elevador já está no último andar");
+			actions();
 		}
 		JOptionPane.showMessageDialog(null,"Elevador agora está no " + actual_floor + "º andar");
 		//going back to menu
@@ -122,6 +126,7 @@ public class Elevator {
 			actual_floor--;
 		}else if(actual_floor == 0) {
 			JOptionPane.showMessageDialog(null,"O elevador já está no térreo");
+			actions();
 		}
 		JOptionPane.showMessageDialog(null,"Elevador agora está no " + actual_floor + "º andar");
 		//going back to menu
