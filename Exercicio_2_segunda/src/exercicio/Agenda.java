@@ -144,7 +144,7 @@ public class Agenda {
 		int i=0;
 		//Getting position
 		i = Integer.parseInt(JOptionPane.showInputDialog("Informe a posição na agenda da pessoa que deseja ver os dados"));
-		//Decremeting to match the array position
+		//Decrementing to match the array position
 		i--;
 		//Showing data
 		JOptionPane.showMessageDialog(null, "Nome: " + name[i] + "\nIdade: " + age[i] + "\nAltura: " + height[i]);
