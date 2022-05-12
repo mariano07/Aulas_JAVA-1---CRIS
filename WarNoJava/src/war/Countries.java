@@ -1,29 +1,31 @@
 package war;
 
-import java.util.Arrays;
-
-import javax.swing.JOptionPane;
-
 public class Countries{
+	//Creating objects
 	Battlefield bf = new Battlefield();
 	Game g = new Game();
-	private int x=0,y=0,d;
+	//Variables
+	private int x=0,y=0;
 	
+	//Creating the map
 	public String[][] givingCountries(int p) {
 		String[][] map = {
 				{"Gondor","Enedwaith", "Rohan", "Harondor", "Mordor"},
-				{"Enedwaith","Gondor", "Rohan", "None", "None"},
-				{"Rohan","Enedwaith", "Gondor", "Rhovanion", "None"},
-				{"Rhovanion","Rohan","None","None","None"},
-				{"Harondor","Gondor", "Mordor","None","None"},
-				{"Mordor","Harondor", "Gondor","None","None"}
+				{"Enedwaith","Gondor", "Rohan", "N", "N"},
+				{"Rohan","Enedwaith", "Gondor", "Rhovanion", "N"},
+				{"Rhovanion","Rohan","N","N","N"},
+				{"Harondor","Gondor", "Mordor","N","N"},
+				{"Mordor","Harondor", "Gondor","N","N"}
 		};
+		//Creating the string with the current players
 		String[][] actual_players = new String[p][5];
-		
+		//randomizing wich countries each player gets
+		int[] d = bf.countryDice();
+		int j;
 		for(x=0;x<p;x++) {
-			d = bf.rollDice();
 			for(y=0;y<5;y++) {
-				actual_players[x][y] = map[d][y];
+				j=d[x];
+				actual_players[x][y] = map[j][y];
 			}
 		}
 		return actual_players;
