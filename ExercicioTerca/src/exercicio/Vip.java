@@ -3,13 +3,13 @@ package exercicio;
 import javax.swing.JOptionPane;
 
 public class Vip extends Ingresso {
-	private int loc;
+	private String loc;
 	
-	public int getLoc() {
+	public String getLoc() {
 		return loc;
 	}
 
-	public void setLoc(int loc) {
+	public void setLoc(String loc) {
 		this.loc = loc;
 	}
 	@Override

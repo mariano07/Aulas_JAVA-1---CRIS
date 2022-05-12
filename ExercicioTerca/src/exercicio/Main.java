@@ -12,7 +12,7 @@ public class Main {
 		CamaroteSuperior cs = new CamaroteSuperior();
 		
 		ing.setValor(Integer.parseInt(JOptionPane.showInputDialog("Informe o valor do ingresso")));
-		ci.setLoc(Integer.parseInt(JOptionPane.showInputDialog("Informe a localização do ingresso")));
+		ci.setLoc(JOptionPane.showInputDialog("Informe a localização do ingresso"));
 		cs.setLoc(ci.getLoc());
 		
 		ci.setValor(ing.getValor());
