@@ -1,34 +1,31 @@
 package war;
 
-public class Countries {
+import java.util.Arrays;
+
+import javax.swing.JOptionPane;
+
+public class Countries{
 	Battlefield bf = new Battlefield();
 	Game g = new Game();
+	private int x=0,y=0,d;
 	
-	private String[][] map = new String[][]{
-		{"Gondor","Enedwaith", "Rohan", "Harondor", "Mordor"},
-		{"Enedwaith","Gondor", "Rohan"},
-		{"Rohan","Enedwaith", "Gondor", "Rhovanion"},
-		{"Rhovanion","Rohan"},
-		{"Harondor","Gondor", "Mordor"},
-		{"Mordor","Harondor", "Gondor"}
-	};
-	
-	public String[][] givingCountries() {
-		int x=0,y=0,p=0,d=0;
-		p = g.getPlayers();
+	public String[][] givingCountries(int p) {
+		String[][] map = {
+				{"Gondor","Enedwaith", "Rohan", "Harondor", "Mordor"},
+				{"Enedwaith","Gondor", "Rohan", "None", "None"},
+				{"Rohan","Enedwaith", "Gondor", "Rhovanion", "None"},
+				{"Rhovanion","Rohan","None","None","None"},
+				{"Harondor","Gondor", "Mordor","None","None"},
+				{"Mordor","Harondor", "Gondor","None","None"}
+		};
 		String[][] actual_players = new String[p][5];
-		int [] dice = new int[p];
 		
 		for(x=0;x<p;x++) {
-			dice[x] = bf.rollDice();
-		}
-		
-		for(x=0;x<p;x++) {
+			d = bf.rollDice();
 			for(y=0;y<5;y++) {
 				actual_players[x][y] = map[d][y];
 			}
 		}
-		
 		return actual_players;
 	}
 }
