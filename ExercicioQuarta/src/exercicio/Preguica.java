@@ -9,6 +9,6 @@ public class Preguica extends Animal {
 		
 		setName(JOptionPane.showInputDialog("Informe o nome da preguiça"));
 		setAge(Integer.parseInt(JOptionPane.showInputDialog("Informe a idade da preguiça")));
-		JOptionPane.showMessageDialog(null, "Nome da preguiça " + getName() + "\nIdade da preguiça: " + getAge() + "Som: " + sound);
+		JOptionPane.showMessageDialog(null, "Nome da preguiça " + getName() + "\nIdade da preguiça: " + getAge() + "\nSom: " + sound);
 	}
 }
