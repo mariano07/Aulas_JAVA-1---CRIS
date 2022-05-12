@@ -6,7 +6,6 @@ public class Countries{
 	Game g = new Game();
 	//Variables
 	private int x=0,y=0;
-	
 	//Creating the map
 	public String[][] givingCountries(int p) {
 		String[][] map = {
