@@ -4,6 +4,7 @@
  */
 package view;
 import java.awt.Toolkit;
+import javax.swing.ImageIcon;
 /**
  *
  * @author xboxc
@@ -15,6 +16,7 @@ public class Tela_Principal extends javax.swing.JFrame {
      */
     public Tela_Principal() {
         initComponents();
+        setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/Book.png")));
     }
 
     /**
@@ -186,4 +188,5 @@ public class Tela_Principal extends javax.swing.JFrame {
     private javax.swing.JMenuItem jMenuItem5;
     private javax.swing.JDesktopPane telaPrincipal;
     // End of variables declaration//GEN-END:variables
+
 }
