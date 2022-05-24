@@ -3,16 +3,17 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package view;
+
 /**
  *
  * @author xboxc
  */
-public class Tela_Registrados extends javax.swing.JInternalFrame {
+public class Tela_Excluir extends javax.swing.JInternalFrame {
 
     /**
-     * Creates new form Tela_Registrados
+     * Creates new form Tela_Excluir
      */
-    public Tela_Registrados() {
+    public Tela_Excluir() {
         initComponents();
     }
 
@@ -30,34 +31,31 @@ public class Tela_Registrados extends javax.swing.JInternalFrame {
         setClosable(true);
         setMaximizable(true);
 
-        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Dados dos Usuários"));
+        jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Escolha qual usuário quer excluir"));
 
         javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
         jPanel1.setLayout(jPanel1Layout);
         jPanel1Layout.setHorizontalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 316, Short.MAX_VALUE)
+            .addGap(0, 384, Short.MAX_VALUE)
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 221, Short.MAX_VALUE)
+            .addGap(0, 251, Short.MAX_VALUE)
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+            .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
-        setBounds(200, 0, 350, 280);
+        setBounds(400, 0, 406, 310);
     }// </editor-fold>//GEN-END:initComponents
 
 
