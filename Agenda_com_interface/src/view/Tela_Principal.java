@@ -5,6 +5,7 @@
 package view;
 import java.awt.Toolkit;
 import javax.swing.ImageIcon;
+import javax.swing.JOptionPane;
 /**
  *
  * @author xboxc
@@ -14,6 +15,7 @@ public class Tela_Principal extends javax.swing.JFrame {
     /**
      * Creates new form Tela_Principal
      */
+    private boolean telaCadastroUser = false,telaRegis = false,telaExclu = false;
     public Tela_Principal() {
         initComponents();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/Book.png")));
@@ -71,6 +73,11 @@ public class Tela_Principal extends javax.swing.JFrame {
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.png"))); // NOI18N
         jMenu2.setText("Usuários");
+        jMenu2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jMenu2ActionPerformed(evt);
+            }
+        });
 
         jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user_add.png"))); // NOI18N
@@ -122,15 +129,25 @@ public class Tela_Principal extends javax.swing.JFrame {
     }// </editor-fold>//GEN-END:initComponents
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
-        Tela_Cadastro_Usuario telaCaduser = new Tela_Cadastro_Usuario();
+       Tela_Cadastro_Usuario telaCaduser = new Tela_Cadastro_Usuario();
+        if(telaCadastroUser == true){
+            JOptionPane.showMessageDialog(null, "Essa tela já está aberta");
+       }else{
         telaPrincipal.add(telaCaduser);
+        telaCadastroUser = true;
         telaCaduser.setVisible(true);
+       }
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         Tela_Registrados telaRegUser = new Tela_Registrados();
+        if(telaRegis == true){
+            JOptionPane.showMessageDialog(null, "Essa tela já está aberta");
+        }else{
         telaPrincipal.add(telaRegUser);
+        telaRegis = true;
         telaRegUser.setVisible(true);
+        }
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -139,9 +156,18 @@ public class Tela_Principal extends javax.swing.JFrame {
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         Tela_Excluir telaExc = new Tela_Excluir();
+        if(telaExclu == true){
+            JOptionPane.showMessageDialog(null, "Essa tela já está aberta");
+        }else{
         telaPrincipal.add(telaExc);
+        telaExclu = true;
         telaExc.setVisible(true);
+        }
     }//GEN-LAST:event_jMenuItem4ActionPerformed
+
+    private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jMenu2ActionPerformed
 
     /**
      * @param args the command line arguments

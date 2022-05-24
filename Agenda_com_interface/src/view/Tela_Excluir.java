@@ -30,6 +30,7 @@ public class Tela_Excluir extends javax.swing.JInternalFrame {
 
         setClosable(true);
         setMaximizable(true);
+        setResizable(true);
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder("Escolha qual usuário quer excluir"));
 
