@@ -15,7 +15,6 @@ public class Tela_Principal extends javax.swing.JFrame {
     /**
      * Creates new form Tela_Principal
      */
-    private boolean telaCadastroUser = false,telaRegis = false,telaExclu = false;
     public Tela_Principal() {
         initComponents();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/images/Book.png")));
@@ -58,10 +57,12 @@ public class Tela_Principal extends javax.swing.JFrame {
 
         jMenu1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/application.png"))); // NOI18N
         jMenu1.setText("Menus");
+        jMenu1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
 
         jMenuItem2.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ESCAPE, 0));
         jMenuItem2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/house_go.png"))); // NOI18N
         jMenuItem2.setText("Sair");
+        jMenuItem2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenuItem2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem2ActionPerformed(evt);
@@ -73,6 +74,7 @@ public class Tela_Principal extends javax.swing.JFrame {
 
         jMenu2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user.png"))); // NOI18N
         jMenu2.setText("Usuários");
+        jMenu2.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenu2.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenu2ActionPerformed(evt);
@@ -82,6 +84,7 @@ public class Tela_Principal extends javax.swing.JFrame {
         jMenuItem3.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_1, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user_add.png"))); // NOI18N
         jMenuItem3.setText("Adicionar");
+        jMenuItem3.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenuItem3.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem3ActionPerformed(evt);
@@ -92,6 +95,7 @@ public class Tela_Principal extends javax.swing.JFrame {
         jMenuItem4.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_2, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user_delete.png"))); // NOI18N
         jMenuItem4.setText("Remover");
+        jMenuItem4.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenuItem4.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem4ActionPerformed(evt);
@@ -102,6 +106,7 @@ public class Tela_Principal extends javax.swing.JFrame {
         jMenuItem5.setAccelerator(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_3, java.awt.event.InputEvent.CTRL_DOWN_MASK));
         jMenuItem5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/images/user_edit.png"))); // NOI18N
         jMenuItem5.setText("Pesquisar");
+        jMenuItem5.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jMenuItem5.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jMenuItem5ActionPerformed(evt);
@@ -130,24 +135,14 @@ public class Tela_Principal extends javax.swing.JFrame {
 
     private void jMenuItem3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem3ActionPerformed
        Tela_Cadastro_Usuario telaCaduser = new Tela_Cadastro_Usuario();
-        if(telaCadastroUser == true){
-            JOptionPane.showMessageDialog(null, "Essa tela já está aberta");
-       }else{
         telaPrincipal.add(telaCaduser);
-        telaCadastroUser = true;
         telaCaduser.setVisible(true);
-       }
     }//GEN-LAST:event_jMenuItem3ActionPerformed
 
     private void jMenuItem5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem5ActionPerformed
         Tela_Registrados telaRegUser = new Tela_Registrados();
-        if(telaRegis == true){
-            JOptionPane.showMessageDialog(null, "Essa tela já está aberta");
-        }else{
         telaPrincipal.add(telaRegUser);
-        telaRegis = true;
         telaRegUser.setVisible(true);
-        }
     }//GEN-LAST:event_jMenuItem5ActionPerformed
 
     private void jMenuItem2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem2ActionPerformed
@@ -156,13 +151,8 @@ public class Tela_Principal extends javax.swing.JFrame {
 
     private void jMenuItem4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenuItem4ActionPerformed
         Tela_Excluir telaExc = new Tela_Excluir();
-        if(telaExclu == true){
-            JOptionPane.showMessageDialog(null, "Essa tela já está aberta");
-        }else{
         telaPrincipal.add(telaExc);
-        telaExclu = true;
         telaExc.setVisible(true);
-        }
     }//GEN-LAST:event_jMenuItem4ActionPerformed
 
     private void jMenu2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jMenu2ActionPerformed

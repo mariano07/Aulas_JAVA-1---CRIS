@@ -3,6 +3,9 @@
  * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JInternalFrame.java to edit this template
  */
 package view;
+
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author xboxc
@@ -15,7 +18,20 @@ public class Tela_Cadastro_Usuario extends javax.swing.JInternalFrame {
     public Tela_Cadastro_Usuario() {
         initComponents();
     }
-
+    public void verifica(){
+        //String nome,email,end,cpf;
+        if(text_name.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo NOME Vazio!");
+        }else if(ftext_phone.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo TELEFONE Vazio!");
+        }else if(ftext_cpf.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo CPF Vazio!");
+        }else if(text_email.getText().equals("")){
+            JOptionPane.showMessageDialog(null, "Campo EMAIL Vazio!");
+        }else{
+            JOptionPane.showMessageDialog(null, "Dados adicionados com sucesso");
+        }
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -63,14 +79,10 @@ public class Tela_Cadastro_Usuario extends javax.swing.JInternalFrame {
         jLabel4.setText("Telefone");
 
         jButton1.setText("Salvar");
+        jButton1.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         jButton1.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 jButton1MouseClicked(evt);
-            }
-        });
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
             }
         });
 
@@ -159,13 +171,8 @@ public class Tela_Cadastro_Usuario extends javax.swing.JInternalFrame {
     }//GEN-LAST:event_text_nameActionPerformed
 
     private void jButton1MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton1MouseClicked
-        dispose();
+        verifica();
     }//GEN-LAST:event_jButton1MouseClicked
-
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
-        
-        dispose();
-    }//GEN-LAST:event_jButton1ActionPerformed
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JFormattedTextField ftext_cpf;
