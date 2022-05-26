@@ -1,17 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package com.mycompany.interface_grafica;
 
-import javax.swing.DefaultListModel;
+import java.awt.Button;
+import java.awt.event.KeyEvent;
+import javax.swing.JComboBox;
 import javax.swing.JOptionPane;
-import javax.swing.ListModel;
+import javax.swing.KeyStroke;
 
-/**
- *
- * @author alunos
- */
 public class JMain extends javax.swing.JFrame {
 
     /**
@@ -19,6 +13,19 @@ public class JMain extends javax.swing.JFrame {
      */
     public JMain() {
         initComponents();
+        combo_box();
+    }
+    
+    public void combo_box(){
+        int i=0,n=18;
+        String[] idade = new String[82];
+        
+        for(i=0;i<idade.length;i++){
+            idade[i] = String.valueOf(n++);
+        }
+        for(i=0;i<idade.length;i++){
+           box_age.addItem(idade[i]); 
+        }
     }
     
     public void verifica(){
@@ -33,10 +40,10 @@ public class JMain extends javax.swing.JFrame {
             JOptionPane.showMessageDialog(null, "Campo CPF Vazio!");
         }else{
             JOptionPane.showMessageDialog(null, "Dados adicionados com sucesso");
+            d.adicionar(text_name.getText(),text_email.getText(),text_address.getText(),text_cpf.getText(),String.valueOf(box_age.getSelectedItem()));
+            d.setVisible(true);
+            dispose();
         }
-        d.adicionar(text_name.getText(),text_email.getText(),text_address.getText(),text_cpf.getText());
-        d.setVisible(true);
-        dispose();
     }
     /**
      * This method is called from within the constructor to initialize the form.
@@ -57,15 +64,14 @@ public class JMain extends javax.swing.JFrame {
         text_email = new javax.swing.JTextField();
         text_address = new javax.swing.JTextField();
         text_cpf = new javax.swing.JTextField();
-        box_idade = new javax.swing.JComboBox<>();
+        box_age = new javax.swing.JComboBox<>();
         ok_button = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Interface");
         setMaximumSize(new java.awt.Dimension(1920, 1080));
-        setMinimumSize(new java.awt.Dimension(800, 600));
-        setPreferredSize(new java.awt.Dimension(800, 600));
+        setMinimumSize(new java.awt.Dimension(500, 500));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Cadastro", javax.swing.border.TitledBorder.DEFAULT_JUSTIFICATION, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 18))); // NOI18N
         jPanel1.setToolTipText("");
@@ -106,19 +112,18 @@ public class JMain extends javax.swing.JFrame {
             }
         });
 
-        box_idade.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "20", "30", "40", "50", "60", "70", "80", "90" }));
-        box_idade.setToolTipText("");
-        box_idade.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                box_idadeActionPerformed(evt);
-            }
-        });
+        box_age.setToolTipText("");
 
         ok_button.setText("OK");
         ok_button.setCursor(new java.awt.Cursor(java.awt.Cursor.HAND_CURSOR));
         ok_button.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
                 ok_buttonMouseClicked(evt);
+            }
+        });
+        ok_button.addKeyListener(new java.awt.event.KeyAdapter() {
+            public void keyPressed(java.awt.event.KeyEvent evt) {
+                ok_buttonKeyPressed(evt);
             }
         });
 
@@ -137,24 +142,23 @@ public class JMain extends javax.swing.JFrame {
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(text_name)
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
-                        .addGap(0, 0, Short.MAX_VALUE)
                         .addComponent(ok_button)
-                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 324, Short.MAX_VALUE)
                         .addComponent(jButton2))
+                    .addComponent(text_email)
+                    .addComponent(text_address)
+                    .addComponent(text_cpf)
                     .addGroup(jPanel1Layout.createSequentialGroup()
                         .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(text_cpf, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel6)
-                            .addComponent(box_idade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(box_age, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(jLabel5)
                             .addComponent(jLabel2)
                             .addComponent(jLabel3)
-                            .addComponent(text_email, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(text_name, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(jLabel4)
-                            .addComponent(text_address, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(0, 310, Short.MAX_VALUE)))
+                            .addComponent(jLabel4))
+                        .addGap(0, 0, Short.MAX_VALUE)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
@@ -178,7 +182,7 @@ public class JMain extends javax.swing.JFrame {
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(jLabel6)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(box_idade, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(box_age, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 184, Short.MAX_VALUE)
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(ok_button)
@@ -192,8 +196,7 @@ public class JMain extends javax.swing.JFrame {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addContainerGap()
-                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
+                .addComponent(jPanel1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -225,10 +228,6 @@ public class JMain extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_text_cpfActionPerformed
 
-    private void box_idadeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_box_idadeActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_box_idadeActionPerformed
-
     private void ok_buttonMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_ok_buttonMouseClicked
         verifica();
     }//GEN-LAST:event_ok_buttonMouseClicked
@@ -236,6 +235,12 @@ public class JMain extends javax.swing.JFrame {
     private void jButton2MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jButton2MouseClicked
         dispose();
     }//GEN-LAST:event_jButton2MouseClicked
+
+    private void ok_buttonKeyPressed(java.awt.event.KeyEvent evt) {//GEN-FIRST:event_ok_buttonKeyPressed
+       if(evt.getKeyCode() == KeyEvent.VK_ENTER){
+           ok_button.doClick();
+       }
+    }//GEN-LAST:event_ok_buttonKeyPressed
 
     /**
      * @param args the command line arguments
@@ -273,7 +278,7 @@ public class JMain extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JComboBox<String> box_idade;
+    private javax.swing.JComboBox<String> box_age;
     private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
