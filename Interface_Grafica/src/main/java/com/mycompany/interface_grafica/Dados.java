@@ -1,22 +1,11 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
- */
 package com.mycompany.interface_grafica;
 
 import javax.swing.DefaultListModel;
 import javax.swing.ListModel;
 
-/**
- *
- * @author alunos
- */
 public class Dados extends javax.swing.JFrame {
-
-    /**
-     * Creates new form Dados
-     */
-    private String nome,endereco,email,cpf;
+    
+    private String nome,endereco,email,cpf,age;
     
     public Dados() {
         initComponents();
@@ -25,7 +14,6 @@ public class Dados extends javax.swing.JFrame {
         int i=0;
         DefaultListModel model = new DefaultListModel();
         ListModel model2 = listDados.getModel();
-        
         for(i=0;i<model2.getSize();i++){
             model.addElement(model2.getElementAt(i).toString());
         }
@@ -34,11 +22,13 @@ public class Dados extends javax.swing.JFrame {
         this.email = email;
         this.endereco = endereco;
         this.cpf = cpf;
+        this.age = age;
         
         model.addElement("Nome: " + this.nome);
         model.addElement("Email: " + this.email);
         model.addElement("Endereço: " + this.endereco);
         model.addElement("CPF: " + this.cpf);
+        model.addElement("Idade: " + this.age);
         model.addElement("");
         listDados.setModel(model);
     }
@@ -58,8 +48,8 @@ public class Dados extends javax.swing.JFrame {
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1920, 1080));
-        setMinimumSize(new java.awt.Dimension(800, 600));
-        setPreferredSize(new java.awt.Dimension(500, 174));
+        setMinimumSize(new java.awt.Dimension(500, 500));
+        setPreferredSize(new java.awt.Dimension(500, 500));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados dos Usuários", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 14))); // NOI18N
 
@@ -89,17 +79,18 @@ public class Dados extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jScrollPane1, javax.swing.GroupLayout.DEFAULT_SIZE, 478, Short.MAX_VALUE)
-                    .addGroup(jPanel1Layout.createSequentialGroup()
-                        .addComponent(button_voltar)
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, jPanel1Layout.createSequentialGroup()
+                        .addGap(0, 0, Short.MAX_VALUE)
+                        .addComponent(button_voltar)))
                 .addContainerGap())
         );
         jPanel1Layout.setVerticalGroup(
             jPanel1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(jPanel1Layout.createSequentialGroup()
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 21, Short.MAX_VALUE)
-                .addComponent(button_voltar))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 315, Short.MAX_VALUE)
+                .addComponent(button_voltar)
+                .addContainerGap())
         );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
