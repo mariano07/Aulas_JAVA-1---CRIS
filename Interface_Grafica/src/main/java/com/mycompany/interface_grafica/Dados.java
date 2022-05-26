@@ -22,7 +22,6 @@ public class Dados extends javax.swing.JFrame {
         initComponents();
     }
     public void adicionar(String nome,String email,String endereco,String cpf){
-        
         int i=0;
         DefaultListModel model = new DefaultListModel();
         ListModel model2 = listDados.getModel();
