@@ -10,7 +10,7 @@ public class Dados extends javax.swing.JFrame {
     public Dados() {
         initComponents();
     }
-    public void adicionar(String nome,String email,String endereco,String cpf){
+    public void adicionar(String nome,String email,String endereco,String cpf,String age){
         int i=0;
         DefaultListModel model = new DefaultListModel();
         ListModel model2 = listDados.getModel();
@@ -49,7 +49,6 @@ public class Dados extends javax.swing.JFrame {
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1920, 1080));
         setMinimumSize(new java.awt.Dimension(500, 500));
-        setPreferredSize(new java.awt.Dimension(500, 500));
 
         jPanel1.setBorder(javax.swing.BorderFactory.createTitledBorder(null, "Dados dos Usuários", javax.swing.border.TitledBorder.CENTER, javax.swing.border.TitledBorder.DEFAULT_POSITION, new java.awt.Font("Segoe UI", 0, 14))); // NOI18N
 
