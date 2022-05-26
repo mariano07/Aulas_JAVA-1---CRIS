@@ -292,4 +292,7 @@ public class JMain extends javax.swing.JFrame {
     private javax.swing.JTextField text_email;
     private javax.swing.JTextField text_name;
     // End of variables declaration//GEN-END:variables
+
+
+
 }
