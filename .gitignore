@@ -26,3 +26,5 @@ hs_err_pid*
 /Agenda_JFrame/target/
 /Agenda_com_interface/nbproject/private/
 /Agenda_com_interface/build/
+/JDBC/nbproject/private/
+/JDBC/build/
