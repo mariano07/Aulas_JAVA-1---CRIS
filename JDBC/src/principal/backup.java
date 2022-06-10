@@ -6,7 +6,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.Statement;
 
-public class Main {
+public class backup {
 
     static String url = "jdbc:mysql://localhost:3306/escola";
     static String user = "root";

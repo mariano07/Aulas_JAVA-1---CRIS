@@ -28,3 +28,4 @@ hs_err_pid*
 /Agenda_com_interface/build/
 /JDBC/nbproject/private/
 /JDBC/build/
+/JDBC/dist/
