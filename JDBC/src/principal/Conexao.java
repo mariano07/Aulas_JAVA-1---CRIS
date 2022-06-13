@@ -16,13 +16,13 @@ public class Conexao {
     ResultSet result = null;
     static String url = "jdbc:mysql://localhost:3306/escola";
     static String user = "root";
-    static String senha = "";
+    static String senha = "root";
     
     public void conectar(){
          try{
             conexao = DriverManager.getConnection(url,user,senha);
         }catch(Exception e){
-             JOptionPane.showMessageDialog(null, "ERRO", "Erro de conexão ao banco de dados!!", JOptionPane.ERROR_MESSAGE);
+             JOptionPane.showMessageDialog(null, "Erro de conexão ao banco de dados!!","ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }
     
@@ -31,7 +31,7 @@ public class Conexao {
             st.close();
             conexao.close();
         }catch(Exception e) {
-            JOptionPane.showMessageDialog(null, "ERRO", "Erro banco não foi desconectado!!", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Erro banco não foi desconectado!!","ERRO", JOptionPane.ERROR_MESSAGE);
         }
     }
     
@@ -44,7 +44,7 @@ public class Conexao {
             st.executeUpdate(instrucaoSQL);
             JOptionPane.showMessageDialog(null, "Dados inseridos com sucesso");
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "ERRO", "Erro Dados não inseridos", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Erro Dados não inseridos","ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
     }
@@ -59,7 +59,7 @@ public class Conexao {
             st.executeUpdate(instrucaoSQL);
             JOptionPane.showMessageDialog(null, "Dados atualizados com sucesso");
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "ERRO", "Erro Dados não atualizados", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Erro Dados não atualizados","ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
     }
@@ -73,7 +73,7 @@ public class Conexao {
             st.executeUpdate(instrucaoSQL);
             JOptionPane.showMessageDialog(null, "Dados deletados com sucesso"); 
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "ERRO", "Erro Dados não foram deletados", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Erro Dados não foram deletados","ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
     }
@@ -93,7 +93,7 @@ public class Conexao {
                 dados[3] = result.getString(4);
             }
         }catch(Exception e){
-            JOptionPane.showMessageDialog(null, "ERRO", "Erro não foi possivel buscar os dados", JOptionPane.ERROR_MESSAGE);
+            JOptionPane.showMessageDialog(null, "Erro não foi possivel buscar os dados","ERRO", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
         return dados;

@@ -5,16 +5,14 @@ import javax.swing.JOptionPane;
 import principal.Conexao;
 
 public class JMain extends javax.swing.JFrame {
-   private boolean verifica = false;
     
     public JMain() {
         initComponents();
         setIconImage(Toolkit.getDefaultToolkit().getImage(getClass().getResource("/icons/group.png")));
     }
     
-    private boolean checar(){
-        if(text_matricula.getText() == "" && text_nome.getText() == "" && text_email.getText() == "" && text_idade.getText() == ""){
-            JOptionPane.showMessageDialog(null, "Dados Inválidos", "Algum dado está inválido verifique se todos os campos estão preenchidos", JOptionPane.ERROR_MESSAGE);
+    public boolean checar(){
+        if(text_matricula.getText().equals("") && text_nome.getText().equals("") && text_email.getText().equals("") && text_idade.getText().equals("")){
             return false;
         }else{
             return true;
@@ -195,29 +193,38 @@ public class JMain extends javax.swing.JFrame {
     }//GEN-LAST:event_button_limparMouseClicked
 
     private void button_excluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_excluirMouseClicked
+        boolean verifica = false;
         verifica = checar();
-        if(verifica = true){
+        if(verifica == true){
         Conexao cn = new Conexao();
         cn.excluir(text_matricula.getText(),text_nome.getText(),text_email.getText(),text_idade.getText());
         limpar();
+        }else{
+            JOptionPane.showMessageDialog(null, "Algum dado está inválido verifique se todos os campos estão preenchidos","Dados Inválidos", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_button_excluirMouseClicked
 
     private void button_alterarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_alterarMouseClicked
+        boolean verifica = false;
         verifica = checar();
-        if(verifica = true){
+        if(verifica == true){
         Conexao cn = new Conexao();
         cn.alterar(text_matricula.getText(),text_nome.getText(),text_email.getText(),text_idade.getText());
         limpar();
+        }else{
+            JOptionPane.showMessageDialog(null, "Algum dado está inválido verifique se todos os campos estão preenchidos","Dados Inválidos", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_button_alterarMouseClicked
 
     private void button_incluirMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_incluirMouseClicked
+        boolean verifica = false;
         verifica = checar();
-        if(verifica = true){
+        if(verifica == true){
         Conexao cn = new Conexao();
         cn.incluir(text_matricula.getText(),text_nome.getText(),text_email.getText(),text_idade.getText());
         limpar();
+        }else{
+            JOptionPane.showMessageDialog(null, "Algum dado está inválido verifique se todos os campos estão preenchidos","Dados Inválidos", JOptionPane.ERROR_MESSAGE);
         }
     }//GEN-LAST:event_button_incluirMouseClicked
 
