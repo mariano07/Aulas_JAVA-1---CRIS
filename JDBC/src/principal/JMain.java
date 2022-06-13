@@ -222,11 +222,14 @@ public class JMain extends javax.swing.JFrame {
     }//GEN-LAST:event_button_incluirMouseClicked
 
     private void button_buscarMouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_button_buscarMouseClicked
-        verifica = checar();
-        if(verifica = true){
         Conexao cn = new Conexao();
-        cn.buscar(text_matricula.getText(),text_nome.getText(),text_email.getText(),text_idade.getText());
-        }
+        String[] dados = new String[4];
+        dados = cn.buscar(text_matricula.getText(),text_nome.getText(),text_email.getText(),text_idade.getText());
+        text_matricula.setText(dados[0]);
+        text_nome.setText(dados[1]);
+        text_email.setText(dados[2]);
+        text_idade.setText(dados[3]);
+        
     }//GEN-LAST:event_button_buscarMouseClicked
 
     /**

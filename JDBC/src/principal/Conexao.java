@@ -13,9 +13,10 @@ public class Conexao {
     Connection conexao = null;
     Connection con = conexao;
     Statement st = null;
+    ResultSet result = null;
     static String url = "jdbc:mysql://localhost:3306/escola";
     static String user = "root";
-    static String senha = "root";
+    static String senha = "";
     
     public void conectar(){
          try{
@@ -27,6 +28,7 @@ public class Conexao {
     
     public void desconectar(){
         try {
+            st.close();
             conexao.close();
         }catch(Exception e) {
             JOptionPane.showMessageDialog(null, "ERRO", "Erro banco não foi desconectado!!", JOptionPane.ERROR_MESSAGE);
@@ -36,7 +38,7 @@ public class Conexao {
     public void incluir(String matricula, String nome, String email, String idade){
         conectar();
         try{
-            String instrucaoSQL = "INSERT INTO Alunos(Matricula,Nome,Email,Idade)"
+            String instrucaoSQL = "INSERT INTO alunos(Matricula,Nome,Email,Idade)"
                     + "VALUES('" +matricula+ "','" +nome+ "','" +email+ "','" +idade+ "')";
             st = conexao.createStatement();
             st.executeUpdate(instrucaoSQL);
@@ -50,9 +52,14 @@ public class Conexao {
     public void alterar(String matricula, String nome, String email, String idade){
         conectar();
         try{
-            
+            String instrucaoSQL = "UPDATE `alunos` SET "
+                    + "`Matricula`='"+matricula+"',`Nome`='"+nome+"',`Email`='"+email+"',`Idade`='"+idade+"' "
+                    + "WHERE `Matricula` = '"+matricula+"'";
+            st = conexao.createStatement();
+            st.executeUpdate(instrucaoSQL);
+            JOptionPane.showMessageDialog(null, "Dados atualizados com sucesso");
         }catch(Exception e){
-            
+            JOptionPane.showMessageDialog(null, "ERRO", "Erro Dados não atualizados", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
     }
@@ -71,13 +78,24 @@ public class Conexao {
         desconectar();
     }
     
-    public void buscar(String matricula, String nome, String email, String idade){
+    public String[] buscar(String matricula, String nome, String email, String idade){
         conectar();
+        String[] dados = new String[4];
         try{
-            
+            String instrucaoSQL = "SELECT `Matricula`, `Nome`, `Email`, `Idade` FROM `alunos` "
+                    + "WHERE `Matricula` = '"+matricula+"'";
+            st = conexao.createStatement();
+            result = st.executeQuery(instrucaoSQL);
+            while(result.next()){
+                dados[0] = result.getString(1);
+                dados[1] = result.getString(2);
+                dados[2] = result.getString(3);
+                dados[3] = result.getString(4);
+            }
         }catch(Exception e){
-            
+            JOptionPane.showMessageDialog(null, "ERRO", "Erro não foi possivel buscar os dados", JOptionPane.ERROR_MESSAGE);
         }
         desconectar();
+        return dados;
     }
 }
