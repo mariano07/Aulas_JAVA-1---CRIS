@@ -22,3 +22,15 @@
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
 /.metadata/
+/Tema_Segunda/target/
+/Agenda_JFrame/target/
+/Agenda_com_interface/nbproject/private/
+/Agenda_com_interface/build/
+/JDBC/nbproject/private/
+/JDBC/build/
+/JDBC/dist/
+/Botao_Enter/nbproject/private/
+/Botao_Enter/build/
+/JavaApplication4/nbproject/private/
+/PopupCopyPaste/nbproject/private/
+/PopupCopyPaste/build/
